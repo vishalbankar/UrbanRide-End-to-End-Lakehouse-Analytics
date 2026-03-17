@@ -120,7 +120,7 @@ urbanride-lakehouse/
 | Entity | Source | Rows | Format |
 |---|---|---|---|
 | Customers | CSV | 89,041 | Snapshot daily |
-| Drivers | CSV | 500 | Snapshot daily |
+| Drivers | CSV | 5000 | Snapshot daily |
 | Trips | JSON | ~19.6M | Snapshot daily |
 | Payments | CSV | ~19.6M | Snapshot daily |
 | Clickstream | JSON | Millions | Append daily |
