@@ -187,8 +187,6 @@ urbanride (catalog)
 | Partitioning by city | trip_features, payment_features | Every query filters by city — avoids full scans |
 | Z-ordering by trip_date | Within city partitions | Co-locates date-range queries |
 | OPTIMIZE | After every write | Compacts small Delta files |
-| VACUUM | After every write | Removes stale file versions |
-| MERGE INTO | Silver tables | Safe upserts — handles reprocessing |
 
 ---
 
@@ -401,7 +399,6 @@ Path: /Volumes/urbanride/silver/mlflow_artifacts/
 ### Running Order
 
 ```
-Step 1 — Run Urbanride_00 to generate synthetic data
 Step 2 — Run Urbanride_01, Urbanride_02 for Bronze ingestion
 Step 3 — Run UrbanRide_03 through 06 for Silver
 Step 4 — Run UrbanRide_07 through 10 for Gold
