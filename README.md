@@ -104,11 +104,6 @@ urbanride-lakehouse/
 │   ├── 03_demand_forecasting.sql
 │   └── 04_customer_segments.sql
 │
-├── docs/
-│   ├── architecture.md
-│   ├── data_dictionary.md
-│   └── ml_model_decisions.md
-│
 └── assets/
     └── UrbanRide_Lakehouse_Presentation.pptx
 ```
@@ -329,7 +324,8 @@ Morning  → Dashboards fresh for business teams
 | File format | Delta Lake | ACID transactions · Schema enforcement · Time travel |
 | Bronze write mode (CSV) | Overwrite + mergeSchema | Full daily snapshots · absorbs new columns |
 | Bronze write mode (JSON) | Append | Events are additive — history must be preserved |
-| Silver write mode | MERGE INTO | Safe upserts — rerunnable without duplicates |
+| Silver write mode | first run overwrite |Table doesn't exist yet — build from scratch |
+|                   | daily increment append | Only new rows processed |
 | Gold write mode | Overwrite | Full nightly recompute — simple and reliable |
 | ML primary metric | AUC | Imbalanced data — AUC cannot be fooled |
 | RF cache strategy | del + gc.collect between fits | Serverless 1GB ML cache hard limit |
